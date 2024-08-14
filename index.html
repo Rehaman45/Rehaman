@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prime number checker</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://source.unsplash.com/random');
+            background-color: #fff; /* Set background color */
+        }
+
+        .osm {
+            width: 50%;
+            padding: 25px;
+            border: 5px solid #4CAF50; /* Green border */
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px; /* Rounder corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+
+        label {
+            color: blue;
+            font-size: 24px; /* Reduced font size for label */
+            font-variant-ligatures: historical-ligatures;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 10px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Styling for the output message */
+        .output {
+            margin-top: 20px;
+            font-size: 18px;
+            max-height: 150px; /* Maximum height for scrolling */
+            overflow-y: auto; /* Enable vertical scrolling */
+            padding: 10px;
+            border: 2px solid #4CAF50; /* Green border */
+            border-radius: 10px;
+            background-color: #f0f8ff; /* Light blue background */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+
+        /* Styling for the loading spinner */
+        .loader {
+            border: 8px solid #f3f3f3; /* Light gray border */
+            border-top: 8px solid #3498db; /* Blue border */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin cubic-bezier(0.39, 0.575, 0.565, 1) linear infinite; /* Spin animation */
+            margin: 20px auto; /* Center the spinner */
+            display: none; /* Initially hidden */
+            -ms-layout-grid-mode: line;
+        }
+
+        /* Spin animation */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+<div class="osm">
+    <form method="post">
+        <label for="number">Enter a number:</label><br><br>
+        <input type="text" id="number"><br><br>
+        <button type="button" onclick="ok()">
+            Check Prime
+        </button>
+        <!-- Loading spinner -->
+        <div class="loader" id="loader"></div>
+    </form>
+    <!-- Output message container -->
+    <div class="output" id="output"></div>
+</div>
+
+<script>
+    function ok() {
+        // Display the loading spinner
+        document.getElementById('loader').style.display = 'block';
+        
+        var s = 0;
+        var a = parseInt(document.getElementById('num
+
+                s++;
+        }
+        var outputDiv = document.getElementById('output');
+        if (s == 2) {
+            // Set output message for prime numbers
+            outputDiv.innerHTML = "<strong>" + a + " is a prime number.</strong>";
+        } else {
+            // Set output message for non-prime numbers
+            outputDiv.innerHTML = "<strong>" + a + " is not a prime number.</strong>";
+        }
+        // Scroll to the bottom of the output message container
+        outputDiv.scrollTop = outputDiv.scrollHeight;
+        
+        // Hide the loading spinner after processing
+        document.getElementById('loader').style.display = 'none';
+    }
+</script>
+</body>
+</html>
